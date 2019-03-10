@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+ws=$(bspc query -D --names | tail -n +2)
+
+for occ in $(bspc query -D --names -d .occupied); do
+	ws=$(sed "s|${occ}|%{B#444}${occ}%{B-}|g" <<< $ws )
+done
+
+for foc in $(bspc query -D --names -d .focused); do
+	ws=$(sed "s|${foc}|%{+o U#ea7}${foc}%{U- -o}|g" <<< $ws )
+done
+
+echo $ws

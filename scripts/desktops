@@ -1,0 +1,25 @@
+#!/bin/bash
+while true
+do
+sleep 1
+for DESKTOP in $(bspc query -D --names)
+do
+   case $(bspc query -W --names -d $DESKTOP | wc -l) in
+            "0" )
+                echo -ne "%{F#555555}";;
+            "1" )
+                echo -ne "%{F#aaaaaa}";;
+            * )
+                echo -ne "%{F#ffffff}";;
+
+   esac
+        if [[ $(bspc query -D --names -d focused) = $DESKTOP ]]; then
+                echo -ne "%{R}"
+        fi
+   echo -ne "«$DESKTOP»"
+        if [[ $(bspc query -D --names -d focused) = $DESKTOP ]]; then
+                echo -ne "%{R}"
+        fi
+done
+echo ""
+done

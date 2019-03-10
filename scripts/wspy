@@ -1,0 +1,31 @@
+#!/bin/python3
+from time import time
+from subprocess import run, PIPE
+class WS:
+	def __init__(self, name):
+		self.name = " " + name + " "
+		self.left = ""
+		self.right = ""
+
+	def __repr__(self):
+		return self.left + self.name + self.right
+
+	def addTag(self, left, right):
+		self.left = left + self.left
+		self.right = self.right + right
+
+def runCmd(cmd):
+	return run(cmd.split(), stdout=PIPE).stdout.decode()
+
+def getWSs(cmd):
+	return runCmd(cmd).split()
+
+def tagWSs(wss, ws_cmd, tag_left, tag_right):
+	for ws in getWSs(ws_cmd):
+		wss[ws].addTag(tag_left, tag_right)
+
+wss = {x:WS(x) for x in getWSs("bspc query -D --names")}
+tagWSs(wss, 'bspc query -D --names -d .urgent', '%{F#ff0000}', '%{F-}')
+tagWSs(wss, 'bspc query -D --names -d .occupied', '%{F#77ccff}', '%{F-}')
+tagWSs(wss, 'bspc query -D --names -d .focused', '%{U#99bbff}', '%{U-}')
+print(" ".join(map(str, wss.values())))
