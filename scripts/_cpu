@@ -32,4 +32,4 @@ function color_temp(temp){
     temp=$3;
     temps = sprintf("%s,%s", temps, color_temp(temp))
 }
-END {print substr(temps,2)};
+END {print substr(temps,2)"  "};

@@ -1,6 +1,12 @@
 #./lemonbarc | lemonbar -f "Ubuntu:size=14" -u 3 -B "#90202020" -U "#00000000"
-fonts='-f Ubuntu:size=14 -f TamzenForPowerline:size=14 -f Font Awesome 5 Free:size=14 -f Font Awesome 5 Free Solid:size=14 -f Font Awesome 5 Brands:size=15'
+#
+f1='Ubuntu:size=14'
+f2='TamzenForPowerline:size=14' 
+f3='FontAwesome5Free:size=13'  
+f4='FontAwesome5FreeSolid:size=13' 
+f5='FontAwesome5Brands:size=13'
 
 bg="#c3202020"
 
-./lemonbarc | lemonbar $fonts -u 2 -B $bg -U $bg
+./fullscreenhide.sh &
+./lemonbarc | lemonbar -f "$f1" -f "$f2" -f "$f3" -f "$f4" -f "$f5" -u 2 -B $bg -U $bg

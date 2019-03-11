@@ -34,25 +34,25 @@ int main(){
 		60,
 		-1,
 		"#c3202020",
-		"date '+%D %R'"
+		"date '+%R, %D'"
 		//"echo '      '"
 	};
 	Block ws = {
 		-1,
 		1,
-		"#002211",
+		"#001122",
 		"scripts/wspy"
 	};
 	Block mem = {
 		30,
 		-1,
-		"#664a33",
+		"#aa6a33",
 		"scripts/memory"
 	};
 	Block xkb = {
 		-1,
 		2,
-		"#336666",
+		"#337766",
 		"scripts/xkb"
 	};
 	Block pa_control = {
@@ -61,9 +61,14 @@ int main(){
 		"#444444",
 		"scripts/pa-control"
 	};
-
+	Block brightness = {
+		-1,
+		4,
+		"#aaaa33",
+		"xbacklight | awk -F . '{print \" \"$1\"%\"}'"
+	};
 	Block blocks[] =
-		{ws, xkb, date, mem, cpu, pa_control, bat};
-	bar_loop(blocks, 0, preamble, 2, mid_preamble, 3, right_preamble, ending, 7);
+		{ws, xkb, brightness, date, mem, cpu, pa_control, bat};
+	bar_loop(blocks, 0, preamble, 3, mid_preamble, 4, right_preamble, ending, 8);
 	printf("done!\n");
 }
