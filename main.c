@@ -41,7 +41,7 @@ int main(){
 		-1,
 		1,
 		"#001122",
-		"scripts/wspy"
+		"scripts/wscpp"
 	};
 	Block mem = {
 		30,
@@ -64,11 +64,17 @@ int main(){
 	Block brightness = {
 		-1,
 		4,
-		"#aaaa33",
-		"xbacklight | awk -F . '{print \" \"$1\"%\"}'"
+		"#eaea7a",
+		"xbacklight | awk -F . '{print \"%{F#222} \"$1\"%%{F-}\"}'"
+	};
+	Block mpd_state = {
+		-1,
+		5,
+		"#4464ca",
+		"scripts/mpd-state"
 	};
 	Block blocks[] =
-		{ws, xkb, brightness, date, mem, cpu, pa_control, bat};
-	bar_loop(blocks, 0, preamble, 3, mid_preamble, 4, right_preamble, ending, 8);
+		{ws, xkb, brightness, pa_control, mpd_state,date , mem, cpu, bat};
+	bar_loop(blocks, 0, preamble, 5, mid_preamble, 6, right_preamble, ending, 9);
 	printf("done!\n");
 }

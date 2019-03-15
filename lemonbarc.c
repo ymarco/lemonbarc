@@ -96,7 +96,7 @@ void create_template(Bar* bar){
 		strcat(dst, bg_start);
 		strcat(dst, " ");
 		strcat(dst, placeholder);
-		strcat(dst, " ");
+		//strcat(dst, " ");
 		/* bg_stop will be drawn next iteration */
 		i++;
 	}

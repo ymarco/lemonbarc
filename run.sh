@@ -8,5 +8,5 @@ f5='FontAwesome5Brands:size=13'
 
 bg="#c3202020"
 
-./fullscreenhide.sh &
-./lemonbarc | lemonbar -f "$f1" -f "$f2" -f "$f3" -f "$f4" -f "$f5" -u 2 -B $bg -U $bg
+~/desktop/lemonbarc/fullscreenhide.sh &
+~/desktop/lemonbarc/lemonbarc | lemonbar -f "$f1" -f "$f2" -f "$f3" -f "$f4" -f "$f5" -u 2 -B $bg -U $bg

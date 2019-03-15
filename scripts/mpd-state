@@ -1,0 +1,16 @@
+#!/bin/sh
+state="$(mpc)"
+
+if echo "$state" | grep -q "playing"; then
+	echo ""
+	exit
+fi
+
+if echo "$state" | grep -q "paused"; then
+	echo ""
+	exit
+fi
+
+echo ""
+exit
+

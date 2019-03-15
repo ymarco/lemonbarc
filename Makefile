@@ -1,4 +1,4 @@
-CFLAGS=-g
+CFLAGS=-O3
 CC=gcc
 
 objects=main.o lemonbarc.o
