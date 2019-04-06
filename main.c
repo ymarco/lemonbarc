@@ -33,7 +33,7 @@ int main(){
 	Block date = {
 		60,
 		-1,
-		"#c3202020",
+		"#a9202020",
 		"date '+%R, %D'"
 		//"echo '      '"
 	};
@@ -65,7 +65,7 @@ int main(){
 		-1,
 		4,
 		"#eaea7a",
-		"xbacklight | awk -F . '{print \"%{F#222} \"$1\"%%{F-}\"}'"
+		"xbacklight -get| awk -F . '{print \"%{F#222} \"$1\"%%{F-}\"}'"
 	};
 	Block mpd_state = {
 		-1,
@@ -73,8 +73,14 @@ int main(){
 		"#4464ca",
 		"scripts/mpd-state"
 	};
+	Block wifi = {
+		60,
+		-1,
+		"#9944bb",
+		"nmcli -g ACTIVE,SSID,BARS dev wifi list | awk -F : '$1 == \"yes\" {print $2\" \"$3\" \"}'"
+	};
 	Block blocks[] =
-		{ws, xkb, brightness, pa_control, mpd_state,date , mem, cpu, bat};
-	bar_loop(blocks, 0, preamble, 5, mid_preamble, 6, right_preamble, ending, 9);
+		{ws, xkb, brightness, pa_control, mpd_state,date ,mem, wifi, cpu, bat};
+	bar_loop(blocks, 0, preamble, 5, mid_preamble, 6, right_preamble, ending, 10);
 	printf("done!\n");
 }
