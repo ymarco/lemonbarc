@@ -5,6 +5,7 @@ extern char* mid_sep;
 extern char* right_sep;
 char* placeholder = "\7";
 
+
 int str_format(
 		char* dst,
 		char* src,
@@ -141,7 +142,7 @@ void init_bar(
 	fprintf(stderr, "s_base_len: %d\n", bar->s_base_size);
 	bar->template = calloc(bar->s_base_size, sizeof(char));
 	create_template(bar);
-	fprintf(stderr, "template len:%d\n", strlen(bar->template));
+	fprintf(stderr, "template len:%zu\n", strlen(bar->template));
 	fprintf(stderr, "created template:\"%s\"\n", bar->template);
 	bar->cache = malloc(blocks_num * sizeof(CacheLine));
 	for (int i=0; i < bar->blocks_num; i++) {
