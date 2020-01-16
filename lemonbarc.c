@@ -1,5 +1,6 @@
 #include "lemonbarc.h"
 
+
 extern char* left_sep;
 extern char* mid_sep;
 extern char* right_sep;
